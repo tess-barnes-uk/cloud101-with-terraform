@@ -5,8 +5,10 @@
 3. configure and bootstrap an aws s3 backend for terraform
 4. configure and spin up an ecs cluster in aws sandbox
 5. change the app and manually redeploy
-6. enable and run the github actions pipeline provided
-7. clean up
+6. clean up
+7. Establish trust between github and aws for this repo
+8. enable and run the github actions pipeline provided
+9. clean up via pipeline
 
 Each exercise assumes you are starting from the root folder.
 NB replace `{profile-name}` with your aws profile name before running aws-vault commands
@@ -101,7 +103,7 @@ aws-vault exec {your.profile} -- aws iam get-open-id-connect-provider --open-id-
 
 Follow the steps in [github_aws section](../github_aws/readme.md).
 
-## 6. enable and run the github actions pipeline provided
+## 8. enable and run the github actions pipeline provided
 
 - Set up a github secret in your remote repo for the ARN of your S3 bucket in `BUCKET_TF_STATE`
 - Set up a github environment variable in your remote repo to store your `OWNER` value
@@ -112,7 +114,7 @@ Follow the steps in [github_aws section](../github_aws/readme.md).
 - View the pipeline run in github.com
 - Visit the site on the load balancer url provided
 
-## 7. clean up
+## 9. clean up via pipeline
 
 - Manually disable the terraform change management pipeline in github.com
 - Manually run the clean up / Nuke pipeline in github.com
